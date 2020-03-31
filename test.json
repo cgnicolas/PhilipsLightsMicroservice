@@ -1,0 +1,798 @@
+[
+    {
+        "_attributes": {
+            "id": {
+                "_name": "id",
+                "_type": "int8",
+                "_optional": true,
+                "_defaultValue": null,
+                "min": -255,
+                "max": 255
+            },
+            "name": {
+                "_name": "name",
+                "_type": "string",
+                "_optional": true,
+                "_defaultValue": null,
+                "min": 0,
+                "max": 32
+            },
+            "sensors": {
+                "_name": "sensors",
+                "_type": "list",
+                "_optional": true,
+                "_defaultValue": null,
+                "minEntries": 0,
+                "_listType": {
+                    "_name": "sensorId",
+                    "_type": "string",
+                    "_optional": true,
+                    "_defaultValue": null,
+                    "min": null,
+                    "max": null
+                }
+            },
+            "action": {
+                "_name": "action",
+                "_type": "object",
+                "_optional": true,
+                "_defaultValue": null,
+                "_types": null,
+                "_childRequiredKeys": []
+            },
+            "state": {
+                "_name": "state",
+                "_type": "object",
+                "_optional": true,
+                "_defaultValue": null,
+                "_types": [
+                    {
+                        "_name": "all_on",
+                        "_type": "boolean",
+                        "_optional": true,
+                        "_defaultValue": null
+                    },
+                    {
+                        "_name": "any_on",
+                        "_type": "boolean",
+                        "_optional": true,
+                        "_defaultValue": null
+                    }
+                ],
+                "_childRequiredKeys": []
+            },
+            "presence": {
+                "_name": "presence",
+                "_type": "object",
+                "_optional": true,
+                "_defaultValue": null,
+                "_types": [
+                    {
+                        "_name": "lastupdated",
+                        "_type": "string",
+                        "_optional": true,
+                        "_defaultValue": null,
+                        "min": null,
+                        "max": null
+                    },
+                    {
+                        "_name": "presence",
+                        "_type": "boolean",
+                        "_optional": true,
+                        "_defaultValue": null
+                    },
+                    {
+                        "_name": "presence_all",
+                        "_type": "boolean",
+                        "_optional": true,
+                        "_defaultValue": null
+                    }
+                ],
+                "_childRequiredKeys": []
+            },
+            "lightlevel": {
+                "_name": "lightlevel",
+                "_type": "object",
+                "_optional": true,
+                "_defaultValue": null,
+                "_types": [
+                    {
+                        "_name": "lastupdated",
+                        "_type": "string",
+                        "_optional": true,
+                        "_defaultValue": null,
+                        "min": null,
+                        "max": null
+                    },
+                    {
+                        "_name": "dark",
+                        "_type": "boolean",
+                        "_optional": true,
+                        "_defaultValue": null
+                    },
+                    {
+                        "_name": "dark_all",
+                        "_type": "boolean",
+                        "_optional": true,
+                        "_defaultValue": null
+                    },
+                    {
+                        "_name": "daylight",
+                        "_type": "boolean",
+                        "_optional": true,
+                        "_defaultValue": null
+                    },
+                    {
+                        "_name": "daylight_any",
+                        "_type": "boolean",
+                        "_optional": true,
+                        "_defaultValue": null
+                    },
+                    {
+                        "_name": "lightlevel",
+                        "_type": "uint16",
+                        "_optional": true,
+                        "_defaultValue": null,
+                        "min": 0,
+                        "max": 65535
+                    },
+                    {
+                        "_name": "lightlevel_min",
+                        "_type": "uint16",
+                        "_optional": true,
+                        "_defaultValue": null,
+                        "min": 0,
+                        "max": 65535
+                    },
+                    {
+                        "_name": "lightlevel_max",
+                        "_type": "uint16",
+                        "_optional": true,
+                        "_defaultValue": null,
+                        "min": 0,
+                        "max": 65535
+                    }
+                ],
+                "_childRequiredKeys": []
+            },
+            "recycle": {
+                "_name": "recycle",
+                "_type": "boolean",
+                "_optional": true,
+                "_defaultValue": false
+            },
+            "type": {
+                "_name": "type",
+                "_type": "string",
+                "_optional": true,
+                "_defaultValue": "LightGroup",
+                "min": null,
+                "max": null
+            },
+            "lights": {
+                "_name": "lights",
+                "_type": "list",
+                "_optional": true,
+                "_defaultValue": null,
+                "minEntries": 1,
+                "_listType": {
+                    "_name": "lightId",
+                    "_type": "string",
+                    "_optional": true,
+                    "_defaultValue": null,
+                    "min": null,
+                    "max": null
+                }
+            }
+        },
+        "_data": {
+            "id": 0,
+            "name": "Group 0",
+            "lights": [
+                "1",
+                "2",
+                "3"
+            ],
+            "sensors": [
+                "1",
+                "2",
+                "7",
+                "9",
+                "10"
+            ],
+            "type": "LightGroup",
+            "state": {
+                "all_on": false,
+                "any_on": true
+            },
+            "recycle": false,
+            "action": {
+                "on": true,
+                "bri": 188,
+                "hue": 19147,
+                "sat": 254,
+                "effect": "none",
+                "xy": [
+                    0.3015,
+                    0.6013
+                ],
+                "ct": 261,
+                "alert": "select",
+                "colormode": "hs"
+            }
+        },
+        "_populationData": {
+            "name": "Group 0",
+            "lights": [
+                "1",
+                "2",
+                "3"
+            ],
+            "sensors": [
+                "1",
+                "2",
+                "7",
+                "9",
+                "10"
+            ],
+            "type": "LightGroup",
+            "state": {
+                "all_on": false,
+                "any_on": true
+            },
+            "recycle": false,
+            "action": {
+                "on": true,
+                "bri": 188,
+                "hue": 19147,
+                "sat": 254,
+                "effect": "none",
+                "xy": [
+                    0.3015,
+                    0.6013
+                ],
+                "ct": 261,
+                "alert": "select",
+                "colormode": "hs"
+            }
+        }
+    },
+    {
+        "_attributes": {
+            "id": {
+                "_name": "id",
+                "_type": "int8",
+                "_optional": true,
+                "_defaultValue": null,
+                "min": -255,
+                "max": 255
+            },
+            "name": {
+                "_name": "name",
+                "_type": "string",
+                "_optional": true,
+                "_defaultValue": null,
+                "min": 0,
+                "max": 32
+            },
+            "sensors": {
+                "_name": "sensors",
+                "_type": "list",
+                "_optional": true,
+                "_defaultValue": null,
+                "minEntries": 0,
+                "_listType": {
+                    "_name": "sensorId",
+                    "_type": "string",
+                    "_optional": true,
+                    "_defaultValue": null,
+                    "min": null,
+                    "max": null
+                }
+            },
+            "action": {
+                "_name": "action",
+                "_type": "object",
+                "_optional": true,
+                "_defaultValue": null,
+                "_types": null,
+                "_childRequiredKeys": []
+            },
+            "state": {
+                "_name": "state",
+                "_type": "object",
+                "_optional": true,
+                "_defaultValue": null,
+                "_types": [
+                    {
+                        "_name": "all_on",
+                        "_type": "boolean",
+                        "_optional": true,
+                        "_defaultValue": null
+                    },
+                    {
+                        "_name": "any_on",
+                        "_type": "boolean",
+                        "_optional": true,
+                        "_defaultValue": null
+                    }
+                ],
+                "_childRequiredKeys": []
+            },
+            "presence": {
+                "_name": "presence",
+                "_type": "object",
+                "_optional": true,
+                "_defaultValue": null,
+                "_types": [
+                    {
+                        "_name": "lastupdated",
+                        "_type": "string",
+                        "_optional": true,
+                        "_defaultValue": null,
+                        "min": null,
+                        "max": null
+                    },
+                    {
+                        "_name": "presence",
+                        "_type": "boolean",
+                        "_optional": true,
+                        "_defaultValue": null
+                    },
+                    {
+                        "_name": "presence_all",
+                        "_type": "boolean",
+                        "_optional": true,
+                        "_defaultValue": null
+                    }
+                ],
+                "_childRequiredKeys": []
+            },
+            "lightlevel": {
+                "_name": "lightlevel",
+                "_type": "object",
+                "_optional": true,
+                "_defaultValue": null,
+                "_types": [
+                    {
+                        "_name": "lastupdated",
+                        "_type": "string",
+                        "_optional": true,
+                        "_defaultValue": null,
+                        "min": null,
+                        "max": null
+                    },
+                    {
+                        "_name": "dark",
+                        "_type": "boolean",
+                        "_optional": true,
+                        "_defaultValue": null
+                    },
+                    {
+                        "_name": "dark_all",
+                        "_type": "boolean",
+                        "_optional": true,
+                        "_defaultValue": null
+                    },
+                    {
+                        "_name": "daylight",
+                        "_type": "boolean",
+                        "_optional": true,
+                        "_defaultValue": null
+                    },
+                    {
+                        "_name": "daylight_any",
+                        "_type": "boolean",
+                        "_optional": true,
+                        "_defaultValue": null
+                    },
+                    {
+                        "_name": "lightlevel",
+                        "_type": "uint16",
+                        "_optional": true,
+                        "_defaultValue": null,
+                        "min": 0,
+                        "max": 65535
+                    },
+                    {
+                        "_name": "lightlevel_min",
+                        "_type": "uint16",
+                        "_optional": true,
+                        "_defaultValue": null,
+                        "min": 0,
+                        "max": 65535
+                    },
+                    {
+                        "_name": "lightlevel_max",
+                        "_type": "uint16",
+                        "_optional": true,
+                        "_defaultValue": null,
+                        "min": 0,
+                        "max": 65535
+                    }
+                ],
+                "_childRequiredKeys": []
+            },
+            "recycle": {
+                "_name": "recycle",
+                "_type": "boolean",
+                "_optional": true,
+                "_defaultValue": false
+            },
+            "type": {
+                "_name": "type",
+                "_type": "string",
+                "_optional": true,
+                "_defaultValue": "Room",
+                "min": null,
+                "max": null
+            },
+            "class": {
+                "_name": "class",
+                "_type": "choice",
+                "_optional": true,
+                "_defaultValue": "Other",
+                "_allowedValues": [
+                    "Living room",
+                    "Kitchen",
+                    "Dining",
+                    "Bedroom",
+                    "Kids bedroom",
+                    "Bathroom",
+                    "Nursery",
+                    "Recreation",
+                    "Office",
+                    "Gym",
+                    "Hallway",
+                    "Toilet",
+                    "Front door",
+                    "Garage",
+                    "Terrace",
+                    "Garden",
+                    "Driveway",
+                    "Carport",
+                    "Other",
+                    "Home",
+                    "Downstairs",
+                    "Upstairs",
+                    "Top floor",
+                    "Attic",
+                    "Guest room",
+                    "Staircase",
+                    "Lounge",
+                    "Man cave",
+                    "Computer",
+                    "Studio",
+                    "Music",
+                    "TV",
+                    "Reading",
+                    "Closet",
+                    "Storage",
+                    "Laundry room",
+                    "Balcony",
+                    "Porch",
+                    "Barbecue",
+                    "Pool"
+                ]
+            },
+            "lights": {
+                "_name": "lights",
+                "_type": "list",
+                "_optional": true,
+                "_defaultValue": null,
+                "minEntries": 0,
+                "_listType": {
+                    "_name": "lightId",
+                    "_type": "string",
+                    "_optional": true,
+                    "_defaultValue": null,
+                    "min": null,
+                    "max": null
+                }
+            }
+        },
+        "_data": {
+            "id": 1,
+            "name": "Bedroom",
+            "lights": [
+                "2",
+                "3",
+                "1"
+            ],
+            "sensors": [],
+            "type": "Room",
+            "state": {
+                "all_on": false,
+                "any_on": true
+            },
+            "recycle": false,
+            "class": "Bedroom",
+            "action": {
+                "on": false,
+                "bri": 144,
+                "hue": 0,
+                "sat": 0,
+                "effect": "none",
+                "xy": [
+                    0.5019,
+                    0.4152
+                ],
+                "ct": 447,
+                "alert": "none",
+                "colormode": "xy"
+            }
+        },
+        "_populationData": {
+            "name": "Bedroom",
+            "lights": [
+                "2",
+                "3",
+                "1"
+            ],
+            "sensors": [],
+            "type": "Room",
+            "state": {
+                "all_on": false,
+                "any_on": true
+            },
+            "recycle": false,
+            "class": "Bedroom",
+            "action": {
+                "on": false,
+                "bri": 144,
+                "hue": 0,
+                "sat": 0,
+                "effect": "none",
+                "xy": [
+                    0.5019,
+                    0.4152
+                ],
+                "ct": 447,
+                "alert": "none",
+                "colormode": "xy"
+            }
+        }
+    },
+    {
+        "_attributes": {
+            "id": {
+                "_name": "id",
+                "_type": "int8",
+                "_optional": true,
+                "_defaultValue": null,
+                "min": -255,
+                "max": 255
+            },
+            "name": {
+                "_name": "name",
+                "_type": "string",
+                "_optional": true,
+                "_defaultValue": null,
+                "min": 0,
+                "max": 32
+            },
+            "sensors": {
+                "_name": "sensors",
+                "_type": "list",
+                "_optional": true,
+                "_defaultValue": null,
+                "minEntries": 0,
+                "_listType": {
+                    "_name": "sensorId",
+                    "_type": "string",
+                    "_optional": true,
+                    "_defaultValue": null,
+                    "min": null,
+                    "max": null
+                }
+            },
+            "action": {
+                "_name": "action",
+                "_type": "object",
+                "_optional": true,
+                "_defaultValue": null,
+                "_types": null,
+                "_childRequiredKeys": []
+            },
+            "state": {
+                "_name": "state",
+                "_type": "object",
+                "_optional": true,
+                "_defaultValue": null,
+                "_types": [
+                    {
+                        "_name": "all_on",
+                        "_type": "boolean",
+                        "_optional": true,
+                        "_defaultValue": null
+                    },
+                    {
+                        "_name": "any_on",
+                        "_type": "boolean",
+                        "_optional": true,
+                        "_defaultValue": null
+                    }
+                ],
+                "_childRequiredKeys": []
+            },
+            "presence": {
+                "_name": "presence",
+                "_type": "object",
+                "_optional": true,
+                "_defaultValue": null,
+                "_types": [
+                    {
+                        "_name": "lastupdated",
+                        "_type": "string",
+                        "_optional": true,
+                        "_defaultValue": null,
+                        "min": null,
+                        "max": null
+                    },
+                    {
+                        "_name": "presence",
+                        "_type": "boolean",
+                        "_optional": true,
+                        "_defaultValue": null
+                    },
+                    {
+                        "_name": "presence_all",
+                        "_type": "boolean",
+                        "_optional": true,
+                        "_defaultValue": null
+                    }
+                ],
+                "_childRequiredKeys": []
+            },
+            "lightlevel": {
+                "_name": "lightlevel",
+                "_type": "object",
+                "_optional": true,
+                "_defaultValue": null,
+                "_types": [
+                    {
+                        "_name": "lastupdated",
+                        "_type": "string",
+                        "_optional": true,
+                        "_defaultValue": null,
+                        "min": null,
+                        "max": null
+                    },
+                    {
+                        "_name": "dark",
+                        "_type": "boolean",
+                        "_optional": true,
+                        "_defaultValue": null
+                    },
+                    {
+                        "_name": "dark_all",
+                        "_type": "boolean",
+                        "_optional": true,
+                        "_defaultValue": null
+                    },
+                    {
+                        "_name": "daylight",
+                        "_type": "boolean",
+                        "_optional": true,
+                        "_defaultValue": null
+                    },
+                    {
+                        "_name": "daylight_any",
+                        "_type": "boolean",
+                        "_optional": true,
+                        "_defaultValue": null
+                    },
+                    {
+                        "_name": "lightlevel",
+                        "_type": "uint16",
+                        "_optional": true,
+                        "_defaultValue": null,
+                        "min": 0,
+                        "max": 65535
+                    },
+                    {
+                        "_name": "lightlevel_min",
+                        "_type": "uint16",
+                        "_optional": true,
+                        "_defaultValue": null,
+                        "min": 0,
+                        "max": 65535
+                    },
+                    {
+                        "_name": "lightlevel_max",
+                        "_type": "uint16",
+                        "_optional": true,
+                        "_defaultValue": null,
+                        "min": 0,
+                        "max": 65535
+                    }
+                ],
+                "_childRequiredKeys": []
+            },
+            "recycle": {
+                "_name": "recycle",
+                "_type": "boolean",
+                "_optional": true,
+                "_defaultValue": false
+            },
+            "type": {
+                "_name": "type",
+                "_type": "string",
+                "_optional": true,
+                "_defaultValue": "LightGroup",
+                "min": null,
+                "max": null
+            },
+            "lights": {
+                "_name": "lights",
+                "_type": "list",
+                "_optional": true,
+                "_defaultValue": null,
+                "minEntries": 1,
+                "_listType": {
+                    "_name": "lightId",
+                    "_type": "string",
+                    "_optional": true,
+                    "_defaultValue": null,
+                    "min": null,
+                    "max": null
+                }
+            }
+        },
+        "_data": {
+            "id": 3,
+            "name": "Custom group for $lights",
+            "lights": [
+                "3"
+            ],
+            "sensors": [],
+            "type": "LightGroup",
+            "state": {
+                "all_on": true,
+                "any_on": true
+            },
+            "recycle": true,
+            "action": {
+                "on": true,
+                "bri": 188,
+                "hue": 19147,
+                "sat": 254,
+                "effect": "none",
+                "xy": [
+                    0.3015,
+                    0.6013
+                ],
+                "ct": 261,
+                "alert": "select",
+                "colormode": "hs"
+            }
+        },
+        "_populationData": {
+            "name": "Custom group for $lights",
+            "lights": [
+                "3"
+            ],
+            "sensors": [],
+            "type": "LightGroup",
+            "state": {
+                "all_on": true,
+                "any_on": true
+            },
+            "recycle": true,
+            "action": {
+                "on": true,
+                "bri": 188,
+                "hue": 19147,
+                "sat": 254,
+                "effect": "none",
+                "xy": [
+                    0.3015,
+                    0.6013
+                ],
+                "ct": 261,
+                "alert": "select",
+                "colormode": "hs"
+            }
+        }
+    }
+]
