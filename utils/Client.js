@@ -70,6 +70,7 @@ class Client {
 
     async _getLightInventory() {
         return new Promise((resolve, reject) => {
+            console.log("Getting inventory")
             this.getLights()
             .then((allLights) => {
                 allLights.forEach((light) => {
@@ -79,7 +80,7 @@ class Client {
                         state: light._data.state
                     })
                 })
-                resolve();
+                resolve(this.lights);
             })
             .catch((err) => {
                 reject(err);
@@ -137,6 +138,7 @@ class Client {
                 this.lights = [];
                 return this._getLightInventory();
             })
+
         })
         .catch((err) => {
             return err;
@@ -199,8 +201,16 @@ class Client {
     }
 
     async power(id){
-        const lightState = this._getLocalLightState(id);
-        return this.setLightState(id, {on: !lightState.on})
+        this.getLightState(id)
+        .then((light) => {
+            // console.log(light)
+            console.log("powered");
+            return this.setLightState(id, {on: !light.on})
+        })
+        .catch((err) => {
+            console.log(err);
+            return err;
+        })
     }
 
     async getRooms(){
