@@ -12,7 +12,7 @@ router.patch('/', (req, res) => {
         }
     }
 
-    philips.executeInstruction('setstate', payload)
+    philips.setLightState(payload.id, payload.state)
     .then((result) => {
         res.status(200).send(result);
     })

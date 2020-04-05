@@ -4,8 +4,7 @@ router.post('/', (req, res) => {
     console.log(req.body.payload)
     philips.executeInstruction('power', req.body.payload)
     .then((result) => {
-        
-        res.status(200).json(philips._getLocalLights())
+        res.status(200).send(result);
     })
     .catch((err) => {
         res.status(400).send(err.stack);

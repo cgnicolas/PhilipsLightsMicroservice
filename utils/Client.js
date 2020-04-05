@@ -74,11 +74,7 @@ class Client {
             this.getLights()
             .then((allLights) => {
                 allLights.forEach((light) => {
-                    this.lights.push({
-                        id: light.id,
-                        name: light._data.name,
-                        state: light._data.state
-                    })
+                    this.lights.push(light._data)
                 })
                 resolve(this.lights);
             })
@@ -131,29 +127,65 @@ class Client {
     }
 
     async executeInstruction(instruction, payload){
-        this._prepareForInstruction(instruction, payload)
-        .then(() => {
-            this._invokeInstruction(instruction, payload)
+        console.log("execute")
+        return new Promise((resolve, reject) => {
+            this._prepareForInstruction(instruction, payload)
             .then(() => {
-                this.lights = [];
-                return this._getLightInventory();
+                return this._invokeInstruction(instruction, payload)
             })
-
-        })
-        .catch((err) => {
-            return err;
+            .then(() => {
+                this.getLights()
+                .then((lights) => {
+                    let response = [];
+                    lights.forEach((light) => {
+                        response.push(light._data);
+                    })
+                    resolve(response);
+                })
+            })
+            .catch((err) => {
+                reject(err);
+            })
         })
     }
 
     async _invokeInstruction(instruction, payload){
-        switch (instruction) {
-            case 'setstate':
-                return this.setLightState(payload.id, payload.state);
-            case 'power':
-                return this.power(payload.id);
-            default:
-                return;
-        }
+        console.log("invoke")
+            switch (instruction) {
+                case 'setstate':
+                    return new Promise((resolve, reject) => {
+                        this.setLightState(payload.id, payload.state)
+                        .then(() => {
+                            resolve();
+                        })
+                        .catch((err) => {
+                            reject(err);
+                        });
+                    })
+                case 'power':
+                    return new Promise((resolve, reject) => {
+                        this.power(payload.id)
+                        .then(() => {
+                            resolve();
+                        })
+                        .catch((err) => {
+                            reject(err);
+                        })
+                    })
+                case 'getlights':
+                    return new Promise((resolve, reject) => {
+                        this.getLights()
+                        .then(() => {
+                            resolve();
+                        })
+                        .catch((err) => {
+                            reject(err);
+                        })
+                    });
+                default:
+                    return;
+            }
+        
     }
 
     async _prepareForInstruction(instruction, payload){
@@ -174,8 +206,18 @@ class Client {
     }
 
     async setLightState(light_id, state){
-        const { authenticatedApi } = this;
-        return authenticatedApi.lights.setLightState(light_id, state);
+        return new Promise((resolve, reject) => {
+            const { authenticatedApi } = this;
+            if(authenticatedApi){
+                authenticatedApi.lights.setLightState(light_id, state)
+                .then(() => {
+                    resolve();
+                })
+                .catch((err) => {
+                    reject(err);
+                })
+            }
+        })
     }
 
     async getUsers() {
@@ -187,30 +229,55 @@ class Client {
     }
 
     async getLights() {
-        const { authenticatedApi } = this;
-        if(authenticatedApi) {
-            return authenticatedApi.lights.getAll();
-        }
+        return new Promise((resolve, reject) => {
+            const { authenticatedApi } = this;
+            if(authenticatedApi) {
+                console.log("Executing get lights");
+                authenticatedApi.lights.getAll()
+                .then((lights) => {
+                    console.log("Resolving Get Lights")
+                    resolve(lights)
+                })
+                .catch((err) => {
+                    reject(err);
+                });
+            }
+        })
     }
 
     async getLightState(id){
-        const {authenticatedApi} = this;
-        if(authenticatedApi) {
-            return authenticatedApi.lights.getLightState(id);
-        }
+        return new Promise((resolve, reject) => {
+            const {authenticatedApi} = this;
+            if(authenticatedApi) {
+                authenticatedApi.lights.getLightState(id)
+                .then((lightState) => {
+                    console.log("Resolving get light state")
+                    resolve(lightState);
+                })
+                .catch((err) => {
+                    reject(err);
+                });
+            }
+        })
     }
 
-    async power(id){
-        this.getLightState(id)
-        .then((light) => {
-            // console.log(light)
-            console.log("powered");
-            return this.setLightState(id, {on: !light.on})
+    power(id){
+        console.log("power")
+        return new Promise((resolve, reject) => {
+            this.getLightState(id)
+            .then((lightState) => {
+                this.setLightState(id, {on: !lightState.on})
+                .then(() => {
+                    console.log("resolving power");
+                    resolve();
+                })
+            })
+            .catch((err) => {
+                console.log(err);
+                reject(err.stack);
+            })
         })
-        .catch((err) => {
-            console.log(err);
-            return err;
-        })
+        
     }
 
     async getRooms(){

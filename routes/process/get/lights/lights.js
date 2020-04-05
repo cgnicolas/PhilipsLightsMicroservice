@@ -4,6 +4,7 @@ const philips = require('../../../../index');
 router.get('/', (req, res) => {
     philips.getLights()
     .then((lights) => {
+        console.log(lights);
         let response = [];
         lights.forEach((light) => {
             response.push(light._data);
