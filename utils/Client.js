@@ -68,7 +68,7 @@ class Client {
         }
     }
 
-    async _getLightInventory() {
+    _getLightInventory() {
         return new Promise((resolve, reject) => {
             console.log("Getting inventory")
             this.getLights()
@@ -126,7 +126,7 @@ class Client {
         }
     }
 
-    async executeInstruction(instruction, payload){
+    executeInstruction(instruction, payload){
         console.log("execute")
         return new Promise((resolve, reject) => {
             this._prepareForInstruction(instruction, payload)
@@ -149,7 +149,7 @@ class Client {
         })
     }
 
-    async _invokeInstruction(instruction, payload){
+    _invokeInstruction(instruction, payload){
         console.log("invoke")
             switch (instruction) {
                 case 'setstate':
@@ -188,7 +188,7 @@ class Client {
         
     }
 
-    async _prepareForInstruction(instruction, payload){
+    _prepareForInstruction(instruction, payload){
         return new Promise((resolve, reject) => {
             let stateSetup;
             if(instruction.includes('set')){
@@ -205,7 +205,7 @@ class Client {
         })
     }
 
-    async setLightState(light_id, state){
+    setLightState(light_id, state){
         return new Promise((resolve, reject) => {
             const { authenticatedApi } = this;
             if(authenticatedApi){
@@ -220,7 +220,7 @@ class Client {
         })
     }
 
-    async getUsers() {
+    getUsers() {
         const { authenticatedApi } = this;
         if(authenticatedApi){
             console.log("Retrieving Users");
@@ -228,7 +228,7 @@ class Client {
         }
     }
 
-    async getLights() {
+    getLights() {
         return new Promise((resolve, reject) => {
             const { authenticatedApi } = this;
             if(authenticatedApi) {
@@ -245,7 +245,7 @@ class Client {
         })
     }
 
-    async getLightState(id){
+    getLightState(id){
         return new Promise((resolve, reject) => {
             const {authenticatedApi} = this;
             if(authenticatedApi) {
@@ -280,12 +280,19 @@ class Client {
         
     }
 
-    async getRooms(){
-        const {authenticatedApi} = this;
-
-        if(authenticatedApi) {
-            return authenticatedApi.groups.getAll()
-        }
+    getRooms(){
+        return new Promise((resolve, reject) => {
+            const {authenticatedApi} = this;
+            if(authenticatedApi) {
+                authenticatedApi.groups.getAll()
+                .then((rooms) => {
+                    resolve(rooms);
+                })
+                .catch((err) => {
+                    reject(err);
+                })
+            }
+        })
     }
 
     _getLocalLightState(id){
