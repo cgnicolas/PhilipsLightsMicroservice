@@ -4,7 +4,7 @@ const philips = require('../../../../index');
 router.get('/', (req, res) => {
     philips.getLights()
     .then((lights) => {
-        res.status(200).json(lights._data);
+        res.status(200).json(lights);
     })
     .catch((err) => {
         console.log(err);
