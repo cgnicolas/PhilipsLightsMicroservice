@@ -8,11 +8,11 @@ router.patch('/', (req, res) => {
         ...req.body.payload,
         state: {
             ...state,
-            bri
+            bri: map(bri, 0, 100, 0, 254)
         }
     }
 
-    philips.setLightState(payload.id, payload.state)
+    philips.executeInstruction('setstate', payload)
     .then((result) => {
         res.status(200).send(result);
     })
