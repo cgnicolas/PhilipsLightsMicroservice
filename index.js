@@ -15,7 +15,7 @@ const axios = require('axios');
 
 const registrationOptions = {
     method: 'POST',
-    url: process.env.SERVER_URI + '/register',
+    url: process.env.SERVER_URI + '/services/register',
     data: serviceDetails,
     json: true
 }

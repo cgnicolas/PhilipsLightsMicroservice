@@ -8,7 +8,7 @@ router.patch('/', (req, res) => {
         ...req.body.payload,
         state: {
             ...state,
-            bri: map(bri, 0, 100, 0, 254)
+            bri: map(bri, 0, 100, 1, 254)
         }
     }
 
