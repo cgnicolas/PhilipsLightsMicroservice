@@ -22,7 +22,13 @@ const registrationOptions = {
 
 process.on('SIGINT', () => {
     console.log('Closed Connection');
-    process.exit();
+    axios.post(process.env.SERVER_URI + '/services/remove/', serviceDetails)
+    .then(() => {
+        process.exit();
+    })
+    .catch(() => {
+        process.exit();
+    })
 })
 
 const philips = new Client(process.env.BRIDGE_IP, 'Autom8', 'LightsService', process.env.BRIDGE_USERNAME);
